@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+{#{% load static %}#}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD</title>
+    <link rel="stylesheet" href=".././static/css/main.css">
+</head>
+<body>
+<a href="{% url 'func' %}">CREATE</a>
+<a href="{% url 'dl' %}">DELETE</a>
+<a href="{% url 'data' %}">DATA</a>
+{% if data %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>first_name</th>
+            <th>last_name</th>
+            <th>age</th>
+            <th>desc</th>
+            <th>created</th>
+        </tr>
+        {% for foo in data %}
+            <tr>
+                <td>{{ foo.id }}</td>
+                <td>{{ foo.first_name }}</td>
+                <td>{{ foo.last_name }}</td>
+                <td>{{ foo.age }}</td>
+                <td>{{ foo.desc }}</td>
+                <td>{{ foo.created }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+</body>
+</html>

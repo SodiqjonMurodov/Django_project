@@ -1,7 +1,13 @@
 from django.shortcuts import render
+from .models import Fruits
 
 
-# Create your views here.
+def myfunc(request):
+    value = Fruits.objects.all()
+    return render(request, 'base.html', {'key': value})
 
-def myFunc(request):
-    return render(request, 'base.html')
+
+def main(request, raqam):
+    print(raqam)
+    base = Fruits.objects.get(id=raqam)
+    return render(request, 'main.html', {'base': base})

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block desc %}
+    <h4>ID: {{ base.id }}</h4>
+    <h4>Name: {{ base.name }}</h4>
+    <h4>Category: {{ base.category.category }}</h4>
+    <h4>Price: {{ base.price }}</h4>
+    <h4>Kg: {{ base.kg }}</h4>
+    <h4>Image: </h4> <img src="{{ base.image.url }}" alt="{{ base.image }}" width="300px">
+    <h4>Description: </h4> <p>{{ base.description }}</p>
+{#    {% include 'base.html' %}#}
+{% endblock %}
+
+
+
+
+

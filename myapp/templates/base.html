@@ -31,31 +31,24 @@
         </ul>
     </div>
 </header>
-
 <section>
-    <div class="card">
-        <div class="card_img">
-            <img src="{% static 'images/apple.png' %}" alt="apple">
+    {% for foo in key %}
+        <div class="card" style="display: inline-block">
+            <div class="card_img">
+                <img src="{{ foo.image.url }}" alt="{{ foo.image }}">
+            </div>
+            <h3>{{ foo.name }}</h3>
+            <p>{{ foo.description|truncatewords_html:50 }}</p>
+            <a class="card_btn" href="{{ foo.get_absolute_url }}">Read more</a>
         </div>
-        <p>An apple is an edible fruit produced by an apple tree (Malus domestica). Apple trees are cultivated worldwide
-            and are the most widely grown species in the genus Malus. The tree originated in Central Asia, where its
-            wild ancestor, Malus sieversii, is still found today. Apples have been grown for thousands of years in Asia
-            and Europe and were brought to North America by European colonists. Apples have religious and mythological
-            significance in many cultures, including Norse, Greek, and European Christian tradition.</p>
-        <a class="card_btn" href="#">Read more</a>
-    </div>
-    <div class="card">
-        <div class="card_img">
-            <img src="{% static 'images/watermelon.png' %}" alt="watermelon">
-        </div>
-        <p>Watermelon (Citrullus lanatus) is a flowering plant species of the Cucurbitaceae family and the name of its
-            edible fruit. A scrambling and trailing vine-like plant, it is a highly cultivated fruit worldwide, with
-            more than 1,000 varieties. Watermelon is grown in favorable climates from tropical to temperate regions
-            worldwide for its large edible fruit, which is a berry with a hard rind and no internal divisions, and is
-            botanically called a pepo. The sweet, juicy flesh is usually deep red to pink, with many black seeds...</p>
-        <a class="card_btn" href="#">Read more</a>
-    </div>
+    {% endfor %}
 </section>
+
+
+{% block desc %}
+
+{% endblock %}
+
 
 <footer>
     <p>&copy; CopyRight from nature</p>
