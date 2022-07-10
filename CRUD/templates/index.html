@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 
-{#{% load static %}#}
+{% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>CRUD</title>
-    <link rel="stylesheet" href=".././static/css/main.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
 <a href="{% url 'func' %}">CREATE</a>
 <a href="{% url 'dl' %}">DELETE</a>
-<a href="{% url 'data' %}">DATA</a>
+<a href="{% url 'func' %}">DATA</a>
 {% if data %}
     <table>
         <tr>

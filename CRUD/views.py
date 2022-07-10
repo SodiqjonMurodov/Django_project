@@ -14,13 +14,11 @@ def myfunc(request):
             age=random.randint(1, 100),
             desc=random.choice(desc)
         )
-    return render(request, 'index.html', {'base': base})
+    data = Main.objects.all()
+    return render(request, 'index.html', {'base': base, 'data': data})
 
 
 def rm(request):
-    dl = Main.objects.all().delete()
-    return render(request, 'index.html', {'del': dl})
+    Main.objects.all().delete()
+    return render(request, 'index.html')
 
-def data(request):
-    data = Main.objects.all()
-    return render(request, 'index.html', {'data': data})
