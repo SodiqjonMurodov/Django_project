@@ -21,3 +21,33 @@ def myfunc(request):
 def rm(request):
     Main.objects.all().delete()
     return render(request, 'index.html')
+
+
+def second(request):
+    number = request.POST.get('int')
+    a = Main.objects
+    base = a.filter(age__gt=number)
+    count = base.count()
+    sum = 0
+    list = []
+    list1 = []
+    list2 = []
+    for x in base:
+        list += [x.age]
+        list1 += [max(list)]
+        list2 += [min(list)]
+        sum += x.age
+    maks = max(list)
+    mini = min(list)
+
+    return render(request, 'second.html', {'base': base,
+                                           'count': count,
+                                           'number': number,
+                                           'sum': sum,
+                                           'maks': maks,
+                                           'min': mini,
+                                           })
+
+
+def third(request):
+    return render(request, 'second.html')

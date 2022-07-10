@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>second</title>
+</head>
+<body>
+{% block filter %}
+    <form action="{% url 'sec' %}" method="post">
+        {% csrf_token %}
+        <input type="number" name="int" placeholder="number">
+        <button>Submit</button>
+    </form>
+    {% if count == 0 %}
+            <h1>Ma'lumot topilmadi</h1>
+    {% else %}
+        <h1>Ma'lumotlar soni: {{ count }}</h1>
+        <h1>Agelar yig'indisi: {{ sum }}</h1>
+        <h1>Maksimum qiymat: {{ maks }}</h1>
+        <h1>Minimum qiymat: {{ min }}</h1>
+        {% for foo in base %}
+            <h1>{{ foo.age }}</h1>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+</body>
+</html>
