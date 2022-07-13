@@ -27,26 +27,9 @@ def second(request):
     number = request.POST.get('int')
     a = Main.objects
     base = a.filter(age__gt=number)
+    maks = a.aggregate(base)
     count = base.count()
-    sum = 0
-    list = []
-    list1 = []
-    list2 = []
-    for x in base:
-        list += [x.age]
-        list1 += [max(list)]
-        list2 += [min(list)]
-        sum += x.age
-    maks = max(list)
-    mini = min(list)
-
-    return render(request, 'second.html', {'base': base,
-                                           'count': count,
-                                           'number': number,
-                                           'sum': sum,
-                                           'maks': maks,
-                                           'min': mini,
-                                           })
+    return render(request, 'second.html', {'base': base, 'count': count, 'maks': maks})
 
 
 def third(request):

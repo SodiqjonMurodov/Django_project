@@ -8,6 +8,5 @@ def myfunc(request):
 
 
 def main(request, raqam):
-    print(raqam)
     base = Fruits.objects.get(id=raqam)
     return render(request, 'main.html', {'base': base})
